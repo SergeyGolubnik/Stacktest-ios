@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var location = UserDefaults.standard.string(forKey: "Location")
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+            TableView()
+        
     }
 }
 
