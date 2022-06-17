@@ -21,6 +21,8 @@
 		878FCEB828593E7A002C08D0 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 878FCEB728593E7A002C08D0 /* FirebaseStorage */; };
 		878FCEBD285A676A002C08D0 /* ModelCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878FCEBC285A676A002C08D0 /* ModelCategory.swift */; };
 		878FCEC1285A6BDB002C08D0 /* FirebaseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878FCEC0285A6BDB002C08D0 /* FirebaseData.swift */; };
+		878FCEC3285BB306002C08D0 /* ModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878FCEC2285BB305002C08D0 /* ModelTest.swift */; };
+		878FCEC5285BC515002C08D0 /* ModelStacktest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878FCEC4285BC515002C08D0 /* ModelStacktest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		878FCE8A28592723002C08D0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		878FCEBC285A676A002C08D0 /* ModelCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelCategory.swift; sourceTree = "<group>"; };
 		878FCEC0285A6BDB002C08D0 /* FirebaseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseData.swift; sourceTree = "<group>"; };
+		878FCEC2285BB305002C08D0 /* ModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTest.swift; sourceTree = "<group>"; };
+		878FCEC4285BC515002C08D0 /* ModelStacktest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelStacktest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +108,8 @@
 			isa = PBXGroup;
 			children = (
 				878FCEBC285A676A002C08D0 /* ModelCategory.swift */,
+				878FCEC2285BB305002C08D0 /* ModelTest.swift */,
+				878FCEC4285BC515002C08D0 /* ModelStacktest.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -201,7 +207,9 @@
 				878FCE8728591B05002C08D0 /* StartView.swift in Sources */,
 				878FCE89285922B0002C08D0 /* TableView.swift in Sources */,
 				878FCE7B285919DF002C08D0 /* ContentView.swift in Sources */,
+				878FCEC3285BB306002C08D0 /* ModelTest.swift in Sources */,
 				878FCE79285919DF002C08D0 /* Stacktest_iosApp.swift in Sources */,
+				878FCEC5285BC515002C08D0 /* ModelStacktest.swift in Sources */,
 				878FCEBD285A676A002C08D0 /* ModelCategory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

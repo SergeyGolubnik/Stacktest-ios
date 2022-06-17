@@ -13,6 +13,8 @@ class AppDelegate: NSObject, UIApplicationDelegate {
                    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
     FirebaseApp.configure()
       FirebaseData.shared.downloadPddBDCategory()
+      FirebaseData.shared.downloadPddTestPollis()
+      FirebaseData.shared.downloadTestStacktest()
     return true
   }
 }

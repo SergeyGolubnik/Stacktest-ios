@@ -10,10 +10,21 @@ import Firebase
 
 
 class FirebaseData {
+    
+    
     static var shared = FirebaseData()
+    
+    
+    
     var category = [ModelCategory]()
+    var testPollis = [ModelTest]()
+    var stakTest = [ModelStacktest]()
+    
+    
     let pddBDCategory = Database.database().reference(withPath: "PDD-BD").child("test-category").child("t8rv0_category")
-    let pddMewBD = Database.database().reference(withPath: "NewBasePDD").child("root")
+    let pddBDPollis = Database.database().reference(withPath: "PDD-BD").child("test-polls").child("t8rv0_stacktest_polls")
+    let pddBDStacktest = Database.database().reference(withPath: "PDD-BD").child("test-stacktest").child("t8rv0_stacktest_tests")
+    
     
     func downloadPddBDCategory() {
         pddBDCategory.observe(.value) { snapshot in
@@ -24,28 +35,74 @@ class FirebaseData {
                 if let data = params.value as? [String: Any] {
                         images = data["image"] as! String
                     }
-//                print(images)
                 let categoryBD = ModelCategory(snapshot: categ as! DataSnapshot, image: images)
                 self.category.append(categoryBD)
             }
-            print(self.category)
         }
     }
-    func updateCategory(array: [ModelCategory]) {
-        
-        let arraySorted = array.filter {$0.parentId != "1"}
-        for parentCategory in arraySorted {
-            for chald in category {
-                if parentCategory.id == chald.parentId {
-                    pddMewBD.child(parentCategory.name).child(chald.name).updateChildValues([
-                        "id": chald.id,
-                        "name": chald.name,
-                        "alias": chald.alias,
-                        "image": chald.image,
-                        "parentId": chald.parentId,
-                        "title": chald.title
-                    ])
+    func downloadPddTestPollis() {
+        pddBDPollis.observe(.value) { snapshot in
+            for test in snapshot.children {
+                var question = [""]
+                var answer1 = [""]
+                var answer2 = [""]
+                var answer3 = [""]
+                var answer4 = [""]
+                var correct = [""]
+                var img = [""]
+                let params = (test as AnyObject).childSnapshot(forPath: "list_imgs")
+                if let data = params.value as? [String: Any] {
+                    question = data["question"] as! [String]
+                    answer1 = data["answer1"] as! [String]
+                    answer2 = data["answer2"] as! [String]
+                    answer3 = data["answer3"] as! [String]
+                    answer4 = data["answer4"] as! [String]
+                    if let corrects = data["correct"] as? [String] {
+                        correct = corrects
+                    }
+                    img = data["img"] as! [String]
                 }
+                
+                let testPollis = ModelTest(snapshot: test as! DataSnapshot,
+                                           question: question,
+                                           answer1: answer1,
+                                           answer2: answer2,
+                                           answer3: answer3,
+                                           answer4: answer4,
+                                           correct: correct,
+                                           img: img)
+                self.testPollis.append(testPollis)
+                
+            }
+            
+        }
+    }
+    func downloadTestStacktest() {
+        pddBDStacktest.observe(.value) { snapshot in
+            for signs in snapshot.children {
+                var img = [String]()
+                var imgb = [String]()
+                var vopros = [String]()
+                var otwet = [String]()
+                let params = (signs as AnyObject).childSnapshot(forPath: "list_imgs")
+                for childer in params.children {
+                    if let data = childer as? DataSnapshot {
+                        if let dataSnaphot = data.value as? [String: Any] {
+                            let arrayImg = dataSnaphot["img"] as! [String]
+                            let arrayImgb = dataSnaphot["imgb"] as! [String]
+                            if let arrayVopros = dataSnaphot["vopros"] as? [String] {
+                                vopros.append(contentsOf: arrayVopros)
+                            }
+                            if let arrayOtwet = dataSnaphot["otwet"] as? [String] {
+                                otwet.append(contentsOf: arrayOtwet)
+                            }
+                            img.append(contentsOf: arrayImg)
+                            imgb.append(contentsOf: arrayImgb)
+                        }
+                        
+                    }
+                }
+                self.stakTest.append(ModelStacktest(snaphot: signs as! DataSnapshot, img: img, imgb: imgb, vopros: vopros, otwet: otwet))
             }
         }
     }
