@@ -23,6 +23,9 @@
 		878FCEC1285A6BDB002C08D0 /* FirebaseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878FCEC0285A6BDB002C08D0 /* FirebaseData.swift */; };
 		878FCEC3285BB306002C08D0 /* ModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878FCEC2285BB305002C08D0 /* ModelTest.swift */; };
 		878FCEC5285BC515002C08D0 /* ModelStacktest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878FCEC4285BC515002C08D0 /* ModelStacktest.swift */; };
+		878FCEE62860FEF1002C08D0 /* DBViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878FCEE52860FEEF002C08D0 /* DBViewModel.swift */; };
+		878FCEE92860FF84002C08D0 /* CoreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878FCEE82860FF84002C08D0 /* CoreDataModel.swift */; };
+		878FCEEC2860FFEB002C08D0 /* CoreDataBdPdd.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 878FCEEA2860FFEB002C08D0 /* CoreDataBdPdd.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +41,9 @@
 		878FCEC0285A6BDB002C08D0 /* FirebaseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseData.swift; sourceTree = "<group>"; };
 		878FCEC2285BB305002C08D0 /* ModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTest.swift; sourceTree = "<group>"; };
 		878FCEC4285BC515002C08D0 /* ModelStacktest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelStacktest.swift; sourceTree = "<group>"; };
+		878FCEE52860FEEF002C08D0 /* DBViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBViewModel.swift; sourceTree = "<group>"; };
+		878FCEE82860FF84002C08D0 /* CoreDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataModel.swift; sourceTree = "<group>"; };
+		878FCEEB2860FFEB002C08D0 /* CoreDataBdPdd.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataBdPdd.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +82,7 @@
 		878FCE77285919DF002C08D0 /* Stacktest-ios */ = {
 			isa = PBXGroup;
 			children = (
+				878FCEE72860FF52002C08D0 /* CoreDataModel */,
 				878FCEBF285A6BBF002C08D0 /* FirebaseData */,
 				878FCEBB285A6753002C08D0 /* Model */,
 				878FCE78285919DF002C08D0 /* Stacktest_iosApp.swift */,
@@ -84,6 +91,7 @@
 				878FCE88285922B0002C08D0 /* TableView.swift */,
 				878FCE8A28592723002C08D0 /* GoogleService-Info.plist */,
 				878FCE7C285919E5002C08D0 /* Assets.xcassets */,
+				878FCEEA2860FFEB002C08D0 /* CoreDataBdPdd.xcdatamodeld */,
 				878FCE7E285919E5002C08D0 /* Preview Content */,
 			);
 			path = "Stacktest-ios";
@@ -120,6 +128,15 @@
 				878FCEC0285A6BDB002C08D0 /* FirebaseData.swift */,
 			);
 			path = FirebaseData;
+			sourceTree = "<group>";
+		};
+		878FCEE72860FF52002C08D0 /* CoreDataModel */ = {
+			isa = PBXGroup;
+			children = (
+				878FCEE52860FEEF002C08D0 /* DBViewModel.swift */,
+				878FCEE82860FF84002C08D0 /* CoreDataModel.swift */,
+			);
+			path = CoreDataModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,9 +224,12 @@
 				878FCE8728591B05002C08D0 /* StartView.swift in Sources */,
 				878FCE89285922B0002C08D0 /* TableView.swift in Sources */,
 				878FCE7B285919DF002C08D0 /* ContentView.swift in Sources */,
+				878FCEEC2860FFEB002C08D0 /* CoreDataBdPdd.xcdatamodeld in Sources */,
 				878FCEC3285BB306002C08D0 /* ModelTest.swift in Sources */,
+				878FCEE62860FEF1002C08D0 /* DBViewModel.swift in Sources */,
 				878FCE79285919DF002C08D0 /* Stacktest_iosApp.swift in Sources */,
 				878FCEC5285BC515002C08D0 /* ModelStacktest.swift in Sources */,
+				878FCEE92860FF84002C08D0 /* CoreDataModel.swift in Sources */,
 				878FCEBD285A676A002C08D0 /* ModelCategory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -459,6 +479,19 @@
 			productName = FirebaseStorage;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		878FCEEA2860FFEB002C08D0 /* CoreDataBdPdd.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				878FCEEB2860FFEB002C08D0 /* CoreDataBdPdd.xcdatamodel */,
+			);
+			currentVersion = 878FCEEB2860FFEB002C08D0 /* CoreDataBdPdd.xcdatamodel */;
+			path = CoreDataBdPdd.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 878FCE6D285919DF002C08D0 /* Project object */;
 }

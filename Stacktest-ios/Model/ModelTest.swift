@@ -36,4 +36,17 @@ struct ModelTest {
         self.correct = correct
         self.img = img
     }
+    init(testModelCore: ModelTestCore) {
+        self.id = testModelCore.id ?? ""
+        self.name = testModelCore.name ?? ""
+        self.title = testModelCore.title ?? ""
+        self.category = testModelCore.category ?? ""
+        self.question = testModelCore.question ?? []
+        self.answer1 = testModelCore.answer1 ?? []
+        self.answer2 = testModelCore.answer2 ?? []
+        self.answer3 = testModelCore.answer3 ?? []
+        self.answer4 = testModelCore.answer4 ?? []
+        self.correct = testModelCore.correct ?? []
+        self.img = testModelCore.img ?? []
+    }
 }

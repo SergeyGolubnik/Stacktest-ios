@@ -39,6 +39,7 @@ class FirebaseData {
                 self.category.append(categoryBD)
             }
         }
+        
     }
     func downloadPddTestPollis() {
         pddBDPollis.observe(.value) { snapshot in

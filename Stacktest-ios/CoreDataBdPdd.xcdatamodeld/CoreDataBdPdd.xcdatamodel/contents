@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21E258" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="ModelCategoryCore" representedClassName="ModelCategoryCore" syncable="YES" codeGenerationType="class">
+        <attribute name="alias" attributeType="String"/>
+        <attribute name="id" attributeType="String"/>
+        <attribute name="image" attributeType="String"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="parentId" attributeType="String"/>
+        <attribute name="title" attributeType="String"/>
+    </entity>
+    <entity name="ModelTestCore" representedClassName="ModelTestCore" syncable="YES" codeGenerationType="class">
+        <attribute name="answer1" attributeType="Transformable" customClassName="[String]"/>
+        <attribute name="answer2" attributeType="Transformable" customClassName="[String]"/>
+        <attribute name="answer3" attributeType="Transformable" customClassName="[String]"/>
+        <attribute name="answer4" attributeType="Transformable" customClassName="[String]"/>
+        <attribute name="category" attributeType="String"/>
+        <attribute name="correct" attributeType="Transformable" customClassName="[String]"/>
+        <attribute name="id" attributeType="String"/>
+        <attribute name="img" attributeType="Transformable" customClassName="[String]"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="question" attributeType="Transformable" customClassName="[String]"/>
+        <attribute name="title" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="ModelCategoryCore" positionX="-36" positionY="9" width="128" height="133"/>
+        <element name="ModelTestCore" positionX="0" positionY="99" width="128" height="194"/>
+    </elements>
+</model>

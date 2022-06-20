@@ -27,11 +27,13 @@ struct ModelCategory {
         
         self.image = image
     }
-}
-struct Params {
-    var image: String?
-    init(snapshot: DataSnapshot){
-        guard let snapshotValio = snapshot.value as? [String: Any] else {return}
-        image = snapshotValio["image"] as? String
+    init(modelCategoryCore: ModelCategoryCore){
+        self.id = modelCategoryCore.id ?? ""
+        self.name = modelCategoryCore.name ?? ""
+        self.alias = modelCategoryCore.alias ?? ""
+        self.image = modelCategoryCore.image ?? ""
+        self.parentId = modelCategoryCore.parentId ?? ""
+        self.title = modelCategoryCore.title ?? ""
     }
 }
+
