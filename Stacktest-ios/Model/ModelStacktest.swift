@@ -34,4 +34,16 @@ struct ModelStacktest {
         self.vopros = vopros
         self.otwet = otwet
     }
+    init(modelStacktestCore: ModelStacktestCore) {
+        self.id = modelStacktestCore.id ?? ""
+        self.name = modelStacktestCore.name ?? ""
+        self.title = modelStacktestCore.title ?? ""
+        self.category = modelStacktestCore.category ?? ""
+        self.imageLink = modelStacktestCore.imageLink ?? ""
+        self.imgRek = modelStacktestCore.imgRek ?? ""
+        self.img = modelStacktestCore.img ?? []
+        self.imgb = modelStacktestCore.imgb  ?? []
+        self.vopros = modelStacktestCore.vopros
+        self.otwet = modelStacktestCore.otwet
+    }
 }

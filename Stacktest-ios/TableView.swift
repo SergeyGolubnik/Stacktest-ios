@@ -11,16 +11,19 @@ struct TableView: View {
     @State var selected = 0
     var body: some View {
         ZStack {
-            if selected == 0 {
-           Text("1")
-            }
-            if selected == 1 {
+            switch selected {
+            case 0:
+                Text("1")
+            case 1:
                 Text("2")
-            } else if selected == 3 {
+            case 2:
                 Text("3")
-            } else if selected == 2 {
+            case 3:
                 Text("4")
+            default:
+                Text("1")
             }
+           
             VStack{
                 
                 Spacer()

@@ -15,7 +15,7 @@ class FirebaseData {
     static var shared = FirebaseData()
     
     
-    
+    var root: ModelCategory!
     var category = [ModelCategory]()
     var testPollis = [ModelTest]()
     var stakTest = [ModelStacktest]()
@@ -25,6 +25,27 @@ class FirebaseData {
     let pddBDPollis = Database.database().reference(withPath: "PDD-BD").child("test-polls").child("t8rv0_stacktest_polls")
     let pddBDStacktest = Database.database().reference(withPath: "PDD-BD").child("test-stacktest").child("t8rv0_stacktest_tests")
     
+    func startGet() {
+        pddBDCategory.observe(.value) { snapshot in
+            
+            for categ in snapshot.children {
+                let categoryBD = ModelCategory(snapshot: categ as! DataSnapshot, image: "")
+                if categoryBD.title == "ROOT" {
+                    self.root = categoryBD
+                }
+            }
+            
+            if self.root.version != DBViewModel.share.version {
+                self.downloadPddBDCategory()
+                self.downloadPddTestPollis()
+                self.downloadTestStacktest()
+            } else {
+                DBViewModel.share.getAllTCategory()
+            }
+            
+        }
+        
+    }
     
     func downloadPddBDCategory() {
         pddBDCategory.observe(.value) { snapshot in
@@ -36,7 +57,11 @@ class FirebaseData {
                         images = data["image"] as! String
                     }
                 let categoryBD = ModelCategory(snapshot: categ as! DataSnapshot, image: images)
-                self.category.append(categoryBD)
+                if categoryBD.parentId != "0" && categoryBD.title !=
+                    "Uncategorised" {
+                    self.category.append(categoryBD)
+//                    print("\(categoryBD.title)__\(categoryBD.parentId)")
+                }
             }
         }
         
@@ -73,9 +98,7 @@ class FirebaseData {
                                            correct: correct,
                                            img: img)
                 self.testPollis.append(testPollis)
-                
             }
-            
         }
     }
     func downloadTestStacktest() {
@@ -105,6 +128,10 @@ class FirebaseData {
                 }
                 self.stakTest.append(ModelStacktest(snaphot: signs as! DataSnapshot, img: img, imgb: imgb, vopros: vopros, otwet: otwet))
             }
+            DBViewModel.share.saveCategory()
+            DBViewModel.share.getAllTCategory()
         }
     }
+    
+   
 }

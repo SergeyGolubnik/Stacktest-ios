@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		873F2B3228625EFA004B4A1A /* AuthResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873F2B3128625EFA004B4A1A /* AuthResult.swift */; };
 		878FCE79285919DF002C08D0 /* Stacktest_iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878FCE78285919DF002C08D0 /* Stacktest_iosApp.swift */; };
 		878FCE7B285919DF002C08D0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878FCE7A285919DF002C08D0 /* ContentView.swift */; };
 		878FCE7D285919E5002C08D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 878FCE7C285919E5002C08D0 /* Assets.xcassets */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		873F2B3128625EFA004B4A1A /* AuthResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResult.swift; sourceTree = "<group>"; };
 		878FCE75285919DF002C08D0 /* Stacktest-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Stacktest-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		878FCE78285919DF002C08D0 /* Stacktest_iosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stacktest_iosApp.swift; sourceTree = "<group>"; };
 		878FCE7A285919DF002C08D0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -62,6 +64,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		873F2B3028625ECE004B4A1A /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				873F2B3128625EFA004B4A1A /* AuthResult.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		878FCE6C285919DF002C08D0 = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +92,7 @@
 		878FCE77285919DF002C08D0 /* Stacktest-ios */ = {
 			isa = PBXGroup;
 			children = (
+				873F2B3028625ECE004B4A1A /* Helper */,
 				878FCEE72860FF52002C08D0 /* CoreDataModel */,
 				878FCEBF285A6BBF002C08D0 /* FirebaseData */,
 				878FCEBB285A6753002C08D0 /* Model */,
@@ -228,6 +239,7 @@
 				878FCEC3285BB306002C08D0 /* ModelTest.swift in Sources */,
 				878FCEE62860FEF1002C08D0 /* DBViewModel.swift in Sources */,
 				878FCE79285919DF002C08D0 /* Stacktest_iosApp.swift in Sources */,
+				873F2B3228625EFA004B4A1A /* AuthResult.swift in Sources */,
 				878FCEC5285BC515002C08D0 /* ModelStacktest.swift in Sources */,
 				878FCEE92860FF84002C08D0 /* CoreDataModel.swift in Sources */,
 				878FCEBD285A676A002C08D0 /* ModelCategory.swift in Sources */,

@@ -16,6 +16,10 @@ struct ModelCategory {
     var image = ""
     var parentId: String
     var title: String
+    var version: String
+    var test = [ModelTest]()
+    var stackTest = [ModelStacktest]()
+    var modelCategory = [ModelCategory]()
     
     init(snapshot: DataSnapshot, image: String) {
         let snapshotValio = snapshot.value as! [String: Any]
@@ -24,6 +28,7 @@ struct ModelCategory {
         alias = snapshotValio["alias"] as! String
         parentId = snapshotValio["parent_id"] as! String
         title = snapshotValio["title"] as! String
+        version = snapshotValio["version"] as! String
         
         self.image = image
     }
@@ -34,6 +39,8 @@ struct ModelCategory {
         self.image = modelCategoryCore.image ?? ""
         self.parentId = modelCategoryCore.parentId ?? ""
         self.title = modelCategoryCore.title ?? ""
+        self.version = modelCategoryCore.version ?? ""
     }
+    
 }
 

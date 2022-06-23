@@ -7,22 +7,36 @@
         <attribute name="name" attributeType="String"/>
         <attribute name="parentId" attributeType="String"/>
         <attribute name="title" attributeType="String"/>
+        <attribute name="version" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="ModelStacktestCore" representedClassName="ModelStacktestCore" syncable="YES" codeGenerationType="class">
+        <attribute name="category" attributeType="String"/>
+        <attribute name="id" attributeType="String"/>
+        <attribute name="imageLink" attributeType="String"/>
+        <attribute name="img" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[String]"/>
+        <attribute name="imgb" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[String]"/>
+        <attribute name="imgRek" attributeType="String"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="otwet" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[String]"/>
+        <attribute name="title" attributeType="String"/>
+        <attribute name="vopros" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[String]"/>
     </entity>
     <entity name="ModelTestCore" representedClassName="ModelTestCore" syncable="YES" codeGenerationType="class">
-        <attribute name="answer1" attributeType="Transformable" customClassName="[String]"/>
-        <attribute name="answer2" attributeType="Transformable" customClassName="[String]"/>
-        <attribute name="answer3" attributeType="Transformable" customClassName="[String]"/>
-        <attribute name="answer4" attributeType="Transformable" customClassName="[String]"/>
+        <attribute name="answer1" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[String]"/>
+        <attribute name="answer2" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[String]"/>
+        <attribute name="answer3" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[String]"/>
+        <attribute name="answer4" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[String]"/>
         <attribute name="category" attributeType="String"/>
-        <attribute name="correct" attributeType="Transformable" customClassName="[String]"/>
+        <attribute name="correct" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[String]"/>
         <attribute name="id" attributeType="String"/>
-        <attribute name="img" attributeType="Transformable" customClassName="[String]"/>
+        <attribute name="img" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[String]"/>
         <attribute name="name" attributeType="String"/>
-        <attribute name="question" attributeType="Transformable" customClassName="[String]"/>
+        <attribute name="question" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[String]"/>
         <attribute name="title" attributeType="String"/>
     </entity>
     <elements>
-        <element name="ModelCategoryCore" positionX="-36" positionY="9" width="128" height="133"/>
-        <element name="ModelTestCore" positionX="0" positionY="99" width="128" height="194"/>
+        <element name="ModelCategoryCore" positionX="-36" positionY="9" width="128" height="134"/>
+        <element name="ModelStacktestCore" positionX="-18" positionY="144" width="128" height="179"/>
+        <element name="ModelTestCore" positionX="0" positionY="99" width="128" height="208"/>
     </elements>
 </model>
