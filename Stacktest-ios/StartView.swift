@@ -8,17 +8,16 @@
 import SwiftUI
 
 struct StartView: View {
-    @State var russBol = false
-    @State var ukrBool = false
-    @State var estBool = false
+    @Binding var localeBool: Bool
     
     var body: some View {
         VStack {
             HStack{
                 VStack(spacing: 5){
                     Button {
-                        russBol.toggle()
+                        localeBool = true
                         UserDefaults.standard.set("ru", forKey: "Location")
+                        UserDefaults.standard.set(localeBool, forKey: "LocationBool")
                     } label: {
                         Image("russia1")
                             .resizable()
@@ -34,8 +33,9 @@ struct StartView: View {
                 .padding()
                 VStack(spacing: 5){
                     Button {
-                        ukrBool.toggle()
+                        localeBool = true
                         UserDefaults.standard.set("uk", forKey: "Location")
+                        UserDefaults.standard.set(localeBool, forKey: "LocationBool")
                     } label: {
                         Image("ukraine")
                             .resizable()
@@ -51,8 +51,9 @@ struct StartView: View {
             }
             VStack(spacing: 5){
                 Button {
-                    estBool.toggle()
+                    localeBool = true
                     UserDefaults.standard.set("en", forKey: "Location")
+                    UserDefaults.standard.set(localeBool, forKey: "LocationBool")
                 } label: {
                     Image("estonia")
                         .resizable()
@@ -72,6 +73,6 @@ struct StartView: View {
 
 struct StartView_Previews: PreviewProvider {
     static var previews: some View {
-        StartView()
+        StartView(localeBool: .constant(false))
     }
 }

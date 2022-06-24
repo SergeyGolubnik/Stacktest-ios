@@ -9,7 +9,11 @@ import Foundation
 import Firebase
 
 
-struct ModelCategory {
+struct ModelCategory: Equatable {
+    static func == (lhs: ModelCategory, rhs: ModelCategory) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
     var id: String
     var name: String
     var alias: String

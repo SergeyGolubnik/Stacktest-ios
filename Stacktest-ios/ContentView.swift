@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var location = UserDefaults.standard.string(forKey: "Location")
+//    @State var location = UserDefaults.standard.string(forKey: "Location")
+//    @State var localeBool = UserDefaults.standard.bool(forKey: "LocationBool") 
     var body: some View {
-            TableView()
-        
+ TableView()
+          
     }
 }
 

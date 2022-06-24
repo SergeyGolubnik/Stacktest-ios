@@ -13,7 +13,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
   func application(_ application: UIApplication,
                    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
     FirebaseApp.configure()
-      FirebaseData.shared.startGet()
+//      FirebaseData.shared.startGet()
      
     return true
   }
@@ -23,11 +23,16 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct Stacktest_iosApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-    
+    @State var localeBool = UserDefaults.standard.bool(forKey: "LocationBool")
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if localeBool {
+                ContentView()
+            } else {
+                StartView(localeBool: $localeBool)
+            }
+            
         }
     }
 }

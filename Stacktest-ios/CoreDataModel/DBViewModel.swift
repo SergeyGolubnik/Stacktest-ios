@@ -7,47 +7,102 @@
 
 import Foundation
 import CoreData
+import Firebase
 
-class DBViewModel {
+class DBViewModel: ObservableObject {
     
     static var share = DBViewModel()
     
-    var generalArray = [ModelCategory]()
+    @Published var selected = 0
+    
+    @Published var pddCategory = [ModelCategory]()
+    
+    @Published var generalArray = [ModelCategory]()
+    @Published var arrayBool = false
+    @Published var pddRossii = [ModelCategory]()
+    @Published var pddEstonii = [ModelCategory]()
+    @Published var pddUkraine = [ModelCategory]()
+    @Published var obuchenie = [ModelCategory]()
+    
+    @Published var locale = ""
     var version = ""
+    var rootVersion = ""
     var category = [ModelCategory]()
     var testPollis = [ModelTest]()
     var stakTest = [ModelStacktest]()
-    
+    init() {
+        startGet()
+        locale = UserDefaults.standard.string(forKey: "Location") ?? "ru"
+    }
+  
+    func startGet() {
+        
+        FirebaseData.shared.pddBDCategory.getData(completion: { error, snapshot in
+            if let error = error {
+                print(error.localizedDescription)
+                    return
+            } else {
+                guard let snapshot = snapshot else {return}
+                for stnap in snapshot.children {
+                    let categoryBD = ModelCategory(snapshot: stnap as! DataSnapshot, image: "")
+                    if categoryBD.title == "ROOT" {
+                        
+                        self.rootVersion = categoryBD.version
+                    }
+                }
+                for mCC in CoreDataManager.shared.getAllCategory() {
+                    let bd = ModelCategory(modelCategoryCore: mCC)
+//                    print(bd)
+                    if bd.name == "predpisyvayushchie-znaki"{
+                        self.version = bd.version
+                    }
+                }
+                if self.version != self.rootVersion {
+                    FirebaseData.shared.downloadPddBDCategory { result in
+                        switch result {
+                        case .success():
+                            self.saveCategory()
+                            self.getAllTCategory()
+                            self.compilatorGereralArray()
+                            self.pddCategoryPry()
+                        case .failure(let error):
+                            print(error.localizedDescription)
+                        }
+                    }
+                } else {
+                    self.getAllTCategory()
+                    self.compilatorGereralArray()
+                    self.pddCategoryPry()
+                }
+            }
+        })
+           
+            
+        
+        
+    }
     func getAllTCategory() {
         category.removeAll()
-        for mCC in CoreDataManager.shared.getAllCategory() {
-            if mCC.title == "ROOT"{
-                version = mCC.version ?? ""
-            }
-            category.append(ModelCategory(modelCategoryCore: mCC))
-            
-        }
-        getAllTest()
-    }
-    func getAllTest() {
         testPollis.removeAll()
+        stakTest.removeAll()
+        for mCC in CoreDataManager.shared.getAllCategory() {
+            category.append(ModelCategory(modelCategoryCore: mCC))
+        }
         for mCC in CoreDataManager.shared.getAllTest() {
             testPollis.append(ModelTest(testModelCore: mCC))
         }
         print(testPollis.count)
-        getAllStackTest()
-    }
-    func getAllStackTest() {
-        stakTest.removeAll()
         for mCC in CoreDataManager.shared.getAllStackeTest() {
             stakTest.append(ModelStacktest(modelStacktestCore: mCC))
         }
         print("____________\(stakTest.count)")
-        self.compilatorArray()
+        
     }
     
     func saveCategory() {
         CoreDataManager.shared.deleteAllData("ModelCategoryCore")
+        CoreDataManager.shared.deleteAllData("ModelTestCore")
+        CoreDataManager.shared.deleteAllData("ModelStacktestCore")
             for categ in FirebaseData.shared.category {
                 let category = ModelCategoryCore(context: CoreDataManager.shared.viewContext)
                 category.id = categ.id
@@ -59,10 +114,6 @@ class DBViewModel {
                 category.version = categ.version
                 CoreDataManager.shared.save()
             }
-        saveTest()
-    }
-    func saveTest() {
-        CoreDataManager.shared.deleteAllData("ModelTestCore")
             for test in FirebaseData.shared.testPollis {
                 let testIn = ModelTestCore(context: CoreDataManager.shared.viewContext)
                 testIn.id = test.id
@@ -78,10 +129,6 @@ class DBViewModel {
                 testIn.answer4 = test.answer4
                 CoreDataManager.shared.save()
             }
-        saveStackTest()
-    }
-    func saveStackTest() {
-        CoreDataManager.shared.deleteAllData("ModelStacktestCore")
             for stackTest in FirebaseData.shared.stakTest {
                 let stack = ModelStacktestCore(context: CoreDataManager.shared.viewContext)
                 stack.id = stackTest.id
@@ -97,7 +144,8 @@ class DBViewModel {
                 CoreDataManager.shared.save()
             }
     }
-    func compilatorArray() {
+    
+    func compilatorGereralArray() {
         let categoryOne = category.filter {$0.parentId == "1"}
         let categoryTwo = category.filter {$0.parentId != "1"}
         var categoryOneTestStack = [ModelCategory]()
@@ -144,6 +192,33 @@ class DBViewModel {
             generalArray.append(groupArray)
         }
         self.generalArray = generalArray
+        self.pddRossii = generalArray.filter {$0.id == "42" || $0.id == "16"}
+        self.pddEstonii = generalArray.filter {$0.id == "44" || $0.id == "17"}
+        self.pddUkraine = generalArray.filter {$0.id == "18" || $0.id == "50"}
+        self.obuchenie = generalArray.filter {$0.id == "54"}
+       
+    }
+    func pddCategoryPry() {
+        
+        switch locale {
+        case "ru":
+            pddCategory = pddRossii
+            arrayBool = true
+        case "uk":
+            pddCategory = pddUkraine
+            arrayBool = true
+            
+        case "en":
+            pddCategory = pddEstonii
+            arrayBool = true
+        default:
+            pddCategory = pddRossii
+            arrayBool = true
+        }
+        for pri in self.pddCategory {
+            print("\(pri.title)___ \(pri.id)")
+        }
+        print(locale)
     }
 }
 

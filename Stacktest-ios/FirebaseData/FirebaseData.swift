@@ -25,30 +25,30 @@ class FirebaseData {
     let pddBDPollis = Database.database().reference(withPath: "PDD-BD").child("test-polls").child("t8rv0_stacktest_polls")
     let pddBDStacktest = Database.database().reference(withPath: "PDD-BD").child("test-stacktest").child("t8rv0_stacktest_tests")
     
-    func startGet() {
-        pddBDCategory.observe(.value) { snapshot in
-            
-            for categ in snapshot.children {
-                let categoryBD = ModelCategory(snapshot: categ as! DataSnapshot, image: "")
-                if categoryBD.title == "ROOT" {
-                    self.root = categoryBD
-                }
-            }
-            
-            if self.root.version != DBViewModel.share.version {
-                self.downloadPddBDCategory()
-                self.downloadPddTestPollis()
-                self.downloadTestStacktest()
-            } else {
-                DBViewModel.share.getAllTCategory()
-            }
-            
-        }
-        
-    }
+//    func startGet() {
+//        pddBDCategory.observe(.value) { snapshot in
+//
+//            for categ in snapshot.children {
+//                let categoryBD = ModelCategory(snapshot: categ as! DataSnapshot, image: "")
+//                if categoryBD.title == "ROOT" {
+//                    self.root = categoryBD
+//                }
+//            }
+//
+//            if self.root.version != DBViewModel.share.version {
+//                self.downloadPddBDCategory()
+//                self.downloadPddTestPollis()
+//                self.downloadTestStacktest()
+//            } else {
+//                DBViewModel.share.getAllTCategory()
+//            }
+//
+//        }
+//
+//    }
     
-    func downloadPddBDCategory() {
-        pddBDCategory.observe(.value) { snapshot in
+    func downloadPddBDCategory(completion: @escaping (Result<Void, Error>) -> Void) {
+        pddBDCategory.observe(.value, with: { snapshot in
             
             for categ in snapshot.children {
                 var images = ""
@@ -60,14 +60,30 @@ class FirebaseData {
                 if categoryBD.parentId != "0" && categoryBD.title !=
                     "Uncategorised" {
                     self.category.append(categoryBD)
-//                    print("\(categoryBD.title)__\(categoryBD.parentId)")
                 }
             }
+            self.downloadPddTestPollis { result in
+                switch result {
+                case .success():
+                    self.downloadTestStacktest { result in
+                        switch result {
+                        case .success():
+                            completion(.success(()))
+                        case .failure(let error):
+                            completion(.failure(error))
+                        }
+                    }
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
+        }) { error in
+            completion(.failure(error))
         }
         
     }
-    func downloadPddTestPollis() {
-        pddBDPollis.observe(.value) { snapshot in
+    func downloadPddTestPollis(completion: @escaping (Result<Void, Error>) -> Void) {
+        pddBDPollis.observe(.value, with: { snapshot in
             for test in snapshot.children {
                 var question = [""]
                 var answer1 = [""]
@@ -99,10 +115,13 @@ class FirebaseData {
                                            img: img)
                 self.testPollis.append(testPollis)
             }
-        }
+            completion(.success(()))
+        }) { error in
+            completion(.failure(error))
+          }
     }
-    func downloadTestStacktest() {
-        pddBDStacktest.observe(.value) { snapshot in
+    func downloadTestStacktest(completion: @escaping (Result<Void, Error>) -> Void) {
+        pddBDStacktest.observe(.value, with: { snapshot in
             for signs in snapshot.children {
                 var img = [String]()
                 var imgb = [String]()
@@ -128,8 +147,9 @@ class FirebaseData {
                 }
                 self.stakTest.append(ModelStacktest(snaphot: signs as! DataSnapshot, img: img, imgb: imgb, vopros: vopros, otwet: otwet))
             }
-            DBViewModel.share.saveCategory()
-            DBViewModel.share.getAllTCategory()
+            completion(.success(()))
+        }) { error in
+            completion(.failure(error))
         }
     }
     
