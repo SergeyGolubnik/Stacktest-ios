@@ -45,6 +45,19 @@ struct ModelCategory: Equatable {
         self.title = modelCategoryCore.title ?? ""
         self.version = modelCategoryCore.version ?? ""
     }
+    init(id: String, name: String, alias: String, image: String, parentId: String, title: String, version: String, test: [ModelTest], stackTest: [ModelStacktest], modelCategory: [ModelCategory]) {
+        self.id = id
+        self.name = name
+        self.alias = alias
+        self.image = image
+        self.parentId = parentId
+        self.title = title
+        self.version = version
+        self.test = test
+        self.stackTest = stackTest
+        self.modelCategory = modelCategory
+    }
     
 }
+
 
