@@ -39,7 +39,7 @@ struct CatalogCell: View {
         }
         .frame(width: 185, height: 230)
         .cornerRadius(10)
-        .shadow(radius: 4)
+        .shadow(radius: 1)
         
             
     }

@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		871B6328286CE1D100D4860B /* CatalogViewTicket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B6327286CE1D100D4860B /* CatalogViewTicket.swift */; };
+		871B632A286CEA6A00D4860B /* CatalogViewCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B6329286CEA6A00D4860B /* CatalogViewCards.swift */; };
+		871B632D286CEE9D00D4860B /* PopoverLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B632C286CEE9D00D4860B /* PopoverLocation.swift */; };
+		871B632F286CEF9700D4860B /* LocationViewPopower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B632E286CEF9700D4860B /* LocationViewPopower.swift */; };
 		873F2B3228625EFA004B4A1A /* AuthResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873F2B3128625EFA004B4A1A /* AuthResult.swift */; };
-		873F2B352864FECA004B4A1A /* CatalogViev.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873F2B342864FECA004B4A1A /* CatalogViev.swift */; };
+		873F2B352864FECA004B4A1A /* CatalogVievSigns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873F2B342864FECA004B4A1A /* CatalogVievSigns.swift */; };
 		8769E57228664F71003C7039 /* NavigationBarCostom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8769E57128664F71003C7039 /* NavigationBarCostom.swift */; };
 		8769E57428665075003C7039 /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8769E57328665075003C7039 /* CustomColor.swift */; };
 		8769E577286654A0003C7039 /* CatalogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8769E576286654A0003C7039 /* CatalogCell.swift */; };
@@ -35,8 +39,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		871B6327286CE1D100D4860B /* CatalogViewTicket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewTicket.swift; sourceTree = "<group>"; };
+		871B6329286CEA6A00D4860B /* CatalogViewCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewCards.swift; sourceTree = "<group>"; };
+		871B632C286CEE9D00D4860B /* PopoverLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverLocation.swift; sourceTree = "<group>"; };
+		871B632E286CEF9700D4860B /* LocationViewPopower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewPopower.swift; sourceTree = "<group>"; };
 		873F2B3128625EFA004B4A1A /* AuthResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResult.swift; sourceTree = "<group>"; };
-		873F2B342864FECA004B4A1A /* CatalogViev.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViev.swift; sourceTree = "<group>"; };
+		873F2B342864FECA004B4A1A /* CatalogVievSigns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogVievSigns.swift; sourceTree = "<group>"; };
 		8769E57128664F71003C7039 /* NavigationBarCostom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarCostom.swift; sourceTree = "<group>"; };
 		8769E57328665075003C7039 /* CustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColor.swift; sourceTree = "<group>"; };
 		8769E576286654A0003C7039 /* CatalogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogCell.swift; sourceTree = "<group>"; };
@@ -74,6 +82,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		871B632B286CEE6800D4860B /* MenuBarNavigation */ = {
+			isa = PBXGroup;
+			children = (
+				878FCE88285922B0002C08D0 /* TableView.swift */,
+				871B632C286CEE9D00D4860B /* PopoverLocation.swift */,
+				871B632E286CEF9700D4860B /* LocationViewPopower.swift */,
+			);
+			path = MenuBarNavigation;
+			sourceTree = "<group>";
+		};
 		873F2B3028625ECE004B4A1A /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -88,8 +106,8 @@
 		873F2B332864F474004B4A1A /* GroupView */ = {
 			isa = PBXGroup;
 			children = (
+				871B632B286CEE6800D4860B /* MenuBarNavigation */,
 				8769E57528665475003C7039 /* Catalog */,
-				878FCE88285922B0002C08D0 /* TableView.swift */,
 			);
 			path = GroupView;
 			sourceTree = "<group>";
@@ -97,8 +115,10 @@
 		8769E57528665475003C7039 /* Catalog */ = {
 			isa = PBXGroup;
 			children = (
-				873F2B342864FECA004B4A1A /* CatalogViev.swift */,
+				873F2B342864FECA004B4A1A /* CatalogVievSigns.swift */,
 				8769E576286654A0003C7039 /* CatalogCell.swift */,
+				871B6327286CE1D100D4860B /* CatalogViewTicket.swift */,
+				871B6329286CEA6A00D4860B /* CatalogViewCards.swift */,
 			);
 			path = Catalog;
 			sourceTree = "<group>";
@@ -263,16 +283,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				871B632A286CEA6A00D4860B /* CatalogViewCards.swift in Sources */,
 				878FCEC1285A6BDB002C08D0 /* FirebaseData.swift in Sources */,
+				871B632F286CEF9700D4860B /* LocationViewPopower.swift in Sources */,
 				878FCE8728591B05002C08D0 /* StartView.swift in Sources */,
-				873F2B352864FECA004B4A1A /* CatalogViev.swift in Sources */,
+				873F2B352864FECA004B4A1A /* CatalogVievSigns.swift in Sources */,
 				878FCE89285922B0002C08D0 /* TableView.swift in Sources */,
 				8769E57228664F71003C7039 /* NavigationBarCostom.swift in Sources */,
 				878FCE7B285919DF002C08D0 /* ContentView.swift in Sources */,
 				878FCEEC2860FFEB002C08D0 /* CoreDataBdPdd.xcdatamodeld in Sources */,
 				8769E577286654A0003C7039 /* CatalogCell.swift in Sources */,
+				871B6328286CE1D100D4860B /* CatalogViewTicket.swift in Sources */,
 				8769E57C28666602003C7039 /* StaticArray.swift in Sources */,
 				878FCEC3285BB306002C08D0 /* ModelTest.swift in Sources */,
+				871B632D286CEE9D00D4860B /* PopoverLocation.swift in Sources */,
 				8769E57428665075003C7039 /* CustomColor.swift in Sources */,
 				878FCEE62860FEF1002C08D0 /* DBViewModel.swift in Sources */,
 				878FCE79285919DF002C08D0 /* Stacktest_iosApp.swift in Sources */,
