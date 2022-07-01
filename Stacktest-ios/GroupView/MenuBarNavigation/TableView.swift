@@ -18,6 +18,7 @@ struct TableView: View {
         NavigationView{
             
             ZStack {
+                
                 if modelTableView.arrayBool {
                     
                     switch modelTableView.selected {
@@ -28,7 +29,7 @@ struct TableView: View {
                     case 3:
                         CatalogViewCards(titleBar: $titleBar).environmentObject(modelTableView)
                     case 4:
-                        Text("5")
+                        StatistikView(titleBar: $titleBar)
                     default:
                         Text("1")
                     }
@@ -42,33 +43,22 @@ struct TableView: View {
                     
                     ZStack{
                         HStack{
-//                            Button(action: {
-//                                modelTableView.selected = 0
-//                                titleBar = "Каталог"
-//                            }) {
-//                                VStack{
-//                                    Image(systemName: modelTableView.selected == 0 ? "doc.text" : "doc.text")
-//                                        .font(.system(size: 32))
-//                                    Text("Каталог")
-//                                        .font(.system(size: 13))
-//                                }
-//                            }.foregroundColor(modelTableView.selected == 0 ? .white.opacity(0.6): .black)
-//                            Spacer()
                             Button(action: {
                                 modelTableView.selected = 1
                             }) {
                                 VStack(spacing: 0) {
-                                    Image(modelTableView.selected == 1 ? "znaki_white" : "znaki")
+                                    Image("znaki_white")
                                         .resizable()
                                         .scaledToFill()
-                                        .frame(width: 40, height: 40)
+                                        .frame(width: modelTableView.selected == 1 ? 60 : 40, height: modelTableView.selected == 1 ? 60 : 40)
                                         .clipped()
-                                    
-                                    Text("Знаки")
-                                        .font(.system(size: 13))
+                                    if modelTableView.selected != 1 {
+                                        Text("Знаки")
+                                            .font(.system(size: 13))
+                                    }
                                         
                                 }
-                                .foregroundColor(modelTableView.selected == 1 ? .white.opacity(0.6) : .blue)
+                                .foregroundColor(.white.opacity(0.6))
                                 .frame(width: 60, height: 42)
                             }
                             
@@ -78,17 +68,19 @@ struct TableView: View {
                                 modelTableView.selected = 2
                             }) {
                                 VStack(spacing: 0) {
-                                    Image(modelTableView.selected == 2 ? "bileti_white" : "bileti")
+                                    Image("bileti_white")
                                         .resizable()
                                         .scaledToFill()
-                                        .frame(width: 40, height: 40)
+                                        .frame(width: modelTableView.selected == 2 ? 60 : 40, height: modelTableView.selected == 2 ? 60 : 40)
                                         .clipped()
-                                    Text("Билеты")
-                                        .font(.system(size: 13))
+                                    if modelTableView.selected != 2 {
+                                        Text("Билеты")
+                                            .font(.system(size: 13))
+                                    }
                                 }
+                                .foregroundColor(.white.opacity(0.6))
+                                .frame(width: 60, height: 42)
                             }
-                            .foregroundColor(modelTableView.selected == 2 ? .white.opacity(0.6) : .blue)
-                            .frame(width: 60, height: 42)
                             Spacer()
                             
                             Button(action: {
@@ -96,37 +88,39 @@ struct TableView: View {
                             }) {
                                 VStack(spacing: 0){
                                     
-                                    Image(modelTableView.selected == 3 ? "ucheba_white" : "ucheba")
+                                    Image("ucheba_white")
                                         .resizable()
                                         .scaledToFill()
-                                        .frame(width: 40, height: 40)
+                                        .frame(width: modelTableView.selected == 3 ? 60 : 40, height: modelTableView.selected == 3 ? 60 : 40)
                                         .clipped()
-                                    Text("Учеба")
-                                        .font(.system(size: 13))
-                                        .frame(width: 60, height: 14)
+                                    if modelTableView.selected != 3 {
+                                        Text("Учеба")
+                                            .font(.system(size: 13))
+                                    }
                                 }
+                                .frame(width: 60, height: 42)
+                                .foregroundColor(.white.opacity(0.6))
                             }
-                            .frame(width: 60, height: 42)
-                            .foregroundColor(modelTableView.selected == 3 ? .white.opacity(0.6) : .blue)
                             
                             
                             Spacer()
                             Button(action: {
                                 modelTableView.selected = 4
-                                titleBar = "Статистика"
                             }) {
                                 VStack(spacing: 0) {
-                                    Image(modelTableView.selected == 4 ? "Stats_white" : "Stats")
+                                    Image("Stats_white")
                                         .resizable()
                                         .scaledToFill()
-                                        .frame(width: 40, height: 40)
+                                        .frame(width: modelTableView.selected == 4 ? 60 : 40, height: modelTableView.selected == 4 ? 60 : 40)
                                         .clipped()
-                                    Text("Стати-ка")
-                                        .font(.system(size: 13))
+                                    if modelTableView.selected != 4 {
+                                        Text("Стати-ка")
+                                            .font(.system(size: 13))
+                                    }
                                 }
+                                .foregroundColor(.white.opacity(0.6))
+                                .frame(width: 60, height: 42)
                             }
-                            .foregroundColor(modelTableView.selected == 4 ? .white.opacity(0.6) : .blue)
-                            .frame(width: 60, height: 42)
                         }
                         .padding()
                         .padding(.horizontal, 20)
@@ -134,7 +128,9 @@ struct TableView: View {
                     }
                 }
                 
+                MenuSetings(setingsBool: $setingsBool)
             }
+          
             .ignoresSafeArea()
             .navigationBarTitle(titleBar, displayMode: .inline)
             .navigationBarColor(UIColor(Color.blueApp))
@@ -166,6 +162,7 @@ struct TableView: View {
             }
             .tolbarPopover(show: $popapSetings) {
                 LocationViewPopower(exitBool: $popapSetings).environmentObject(modelTableView)
+                    .animation(.easeOut, value: 0)
             }
             
            
