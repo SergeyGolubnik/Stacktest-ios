@@ -38,6 +38,8 @@
 		878FCEE62860FEF1002C08D0 /* DBViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878FCEE52860FEEF002C08D0 /* DBViewModel.swift */; };
 		878FCEE92860FF84002C08D0 /* CoreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878FCEE82860FF84002C08D0 /* CoreDataModel.swift */; };
 		878FCEEC2860FFEB002C08D0 /* CoreDataBdPdd.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 878FCEEA2860FFEB002C08D0 /* CoreDataBdPdd.xcdatamodeld */; };
+		87B4605528737C9E009B2016 /* TicketsPDDCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B4605428737C9E009B2016 /* TicketsPDDCategory.swift */; };
+		87B4605828737CCF009B2016 /* TicketsPDDCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B4605728737CCF009B2016 /* TicketsPDDCategoryCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +70,8 @@
 		878FCEE52860FEEF002C08D0 /* DBViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBViewModel.swift; sourceTree = "<group>"; };
 		878FCEE82860FF84002C08D0 /* CoreDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataModel.swift; sourceTree = "<group>"; };
 		878FCEEB2860FFEB002C08D0 /* CoreDataBdPdd.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataBdPdd.xcdatamodel; sourceTree = "<group>"; };
+		87B4605428737C9E009B2016 /* TicketsPDDCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsPDDCategory.swift; sourceTree = "<group>"; };
+		87B4605728737CCF009B2016 /* TicketsPDDCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsPDDCategoryCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +169,7 @@
 				878FCEBF285A6BBF002C08D0 /* FirebaseData */,
 				878FCEBB285A6753002C08D0 /* Model */,
 				873F2B332864F474004B4A1A /* GroupView */,
+				87B4605328737C11009B2016 /* TestsGroup */,
 				878FCE8A28592723002C08D0 /* GoogleService-Info.plist */,
 				878FCE7C285919E5002C08D0 /* Assets.xcassets */,
 				878FCEEA2860FFEB002C08D0 /* CoreDataBdPdd.xcdatamodeld */,
@@ -213,6 +218,23 @@
 				878FCEE82860FF84002C08D0 /* CoreDataModel.swift */,
 			);
 			path = CoreDataModel;
+			sourceTree = "<group>";
+		};
+		87B4605328737C11009B2016 /* TestsGroup */ = {
+			isa = PBXGroup;
+			children = (
+				87B4605628737CB5009B2016 /* TicketsPDDCategory */,
+			);
+			path = TestsGroup;
+			sourceTree = "<group>";
+		};
+		87B4605628737CB5009B2016 /* TicketsPDDCategory */ = {
+			isa = PBXGroup;
+			children = (
+				87B4605428737C9E009B2016 /* TicketsPDDCategory.swift */,
+				87B4605728737CCF009B2016 /* TicketsPDDCategoryCell.swift */,
+			);
+			path = TicketsPDDCategory;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,6 +320,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				871B632A286CEA6A00D4860B /* CatalogViewCards.swift in Sources */,
+				87B4605828737CCF009B2016 /* TicketsPDDCategoryCell.swift in Sources */,
 				871B6334286E426400D4860B /* MenuSetings.swift in Sources */,
 				878FCEC1285A6BDB002C08D0 /* FirebaseData.swift in Sources */,
 				871B632F286CEF9700D4860B /* LocationViewPopower.swift in Sources */,
@@ -313,6 +336,7 @@
 				8769E57C28666602003C7039 /* StaticArray.swift in Sources */,
 				878FCEC3285BB306002C08D0 /* ModelTest.swift in Sources */,
 				871B632D286CEE9D00D4860B /* PopoverLocation.swift in Sources */,
+				87B4605528737C9E009B2016 /* TicketsPDDCategory.swift in Sources */,
 				8769E57428665075003C7039 /* CustomColor.swift in Sources */,
 				878FCEE62860FEF1002C08D0 /* DBViewModel.swift in Sources */,
 				878FCE79285919DF002C08D0 /* Stacktest_iosApp.swift in Sources */,

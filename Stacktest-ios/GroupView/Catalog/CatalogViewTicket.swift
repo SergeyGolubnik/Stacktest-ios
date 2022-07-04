@@ -12,6 +12,9 @@ struct CatalogViewTicket: View {
     @EnvironmentObject var dbViewModel: DBViewModel
     @Binding var titleBar: String
     @State var exemBool = false
+    @State var shareBool = false
+    @State var testShare = [ModelTest]()
+    @State var testName = ""
     let columns = [GridItem(.flexible(), spacing: 10), GridItem(.flexible(), spacing: 10)]
     var body: some View {
         if dbViewModel.pddCategory.count >= 3 {
@@ -23,7 +26,11 @@ struct CatalogViewTicket: View {
                         LazyVGrid(columns: columns, spacing: 10){
                             
                             ForEach(pdd.modelCategory, id: \.id) { cat in
-                                CatalogCell(title: cat.title, image: "https://stacktest.ru/\(cat.image)")
+                                NavigationLink {
+                                    TicketsPDDCategory(modelTest: cat.test, nameGroup: cat.title)
+                                } label: {
+                                    CatalogCell(title: cat.title, image: "https://stacktest.ru/\(cat.image)")
+                                }
                             }
                         }.padding()
                     }

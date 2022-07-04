@@ -49,4 +49,17 @@ struct ModelTest {
         self.correct = testModelCore.correct ?? []
         self.img = testModelCore.img ?? []
     }
+    init() {
+        self.id = "1"
+        self.name = "test1"
+        self.title = "static"
+        self.category = "42"
+        self.question = ["vopros1","vopros2"]
+        self.answer1 = ["vopros1","vopros2"]
+        self.answer2 = ["vopros1","vopros2"]
+        self.answer3 = ["vopros1","vopros2"]
+        self.answer4 = ["vopros1","vopros2"]
+        self.correct = ["1","1"]
+        self.img = ["images/categories/russ_zna.png","images/categories/russ_zna.png"]
+    }
 }

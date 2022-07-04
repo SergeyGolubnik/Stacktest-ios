@@ -142,9 +142,9 @@ struct TableView: View {
                         Image(modelTableView.locale == "ru" ? "russia1" : modelTableView.locale == "uk" ? "ukraine" : modelTableView.locale == "en" ? "estonia" : "russia1")
                             .resizable()
                             .scaledToFill()
-                            .frame(width: 40, height: 40)
+                            .frame(width: 35, height: 35)
                             .clipped()
-                            .padding(.bottom)
+//                            .padding(.bottom)
                     }
 
                 }
@@ -154,8 +154,8 @@ struct TableView: View {
                     } label: {
                         Image(systemName: "gear")
                             .foregroundColor(.black)
-                            .font(.system(size: 25))
-                            .padding(.bottom)
+                            .font(.system(size: 20))
+//                            .padding(.bottom)
                     }
 
                 }
