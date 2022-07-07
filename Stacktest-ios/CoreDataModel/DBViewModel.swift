@@ -194,9 +194,8 @@ class DBViewModel: ObservableObject {
         self.generalArray = generalArray
         self.pddRossii = generalArray.filter {$0.id == "42" || $0.id == "16" || $0.id == "54"}
         self.pddEstonii = generalArray.filter {$0.id == "44" || $0.id == "17" || $0.id == "54"}
-        self.pddUkraine = generalArray.filter {$0.id == "18" || $0.id == "50" || $0.id == "54"}
+        self.pddUkraine = generalArray.filter {$0.id == "50" || $0.id == "18" || $0.id == "54"}
         self.obuchenie = generalArray.filter {$0.id == "54"}
-       
     }
     func pddCategoryPry() {
         
@@ -216,7 +215,7 @@ class DBViewModel: ObservableObject {
             arrayBool = true
         }
         for pri in self.pddCategory {
-            print("\(pri.title)___ \(pri.stackTest.count)")
+            print("\(pri.title)___ \(pri.id)")
         }
         print(locale)
     }

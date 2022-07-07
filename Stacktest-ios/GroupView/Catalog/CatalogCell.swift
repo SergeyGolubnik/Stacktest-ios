@@ -15,7 +15,7 @@ struct CatalogCell: View {
         ZStack {
             Rectangle()
                 .foregroundColor(.white)
-            VStack{
+            VStack(spacing: 0){
                 WebImage(url: URL(string: image))
                     .resizable()
                     .placeholder(Image(systemName: "photo"))
@@ -25,6 +25,7 @@ struct CatalogCell: View {
                     .indicator(.activity) // Activity Indicator
                     .transition(.fade(duration: 0.5)) // Fade Transition with duration
                     .scaledToFit()
+                    .frame(width: 185, height: 120)
                     .clipped()
                     .padding(.bottom)
                 Capsule()
@@ -33,8 +34,10 @@ struct CatalogCell: View {
                 HStack{
                     Text(title)
                         .multilineTextAlignment(.center)
+                        .foregroundColor(.black)
+                        .frame(width: 180, height: 70)
                     
-                }.padding(.top)
+                }
             }
         }
         .frame(width: 185, height: 230)

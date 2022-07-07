@@ -11,14 +11,11 @@ struct CatalogViewCards: View {
     @State var arrayPdd = DBViewModel.share.pddRossii
     @EnvironmentObject var dbViewModel: DBViewModel
     @Binding var titleBar: String
-    @State var cardsBool = true
     let columns = [GridItem(.flexible(), spacing: 10), GridItem(.flexible(), spacing: 10)]
     var body: some View {
-        if dbViewModel.pddCategory.count >= 3 {
-            
             ScrollView (showsIndicators: false) {
                 VStack{
-                    if let pdd = dbViewModel.pddCategory[2] {
+                    if let pdd = dbViewModel.pddCategory.filter {$0.id == "54"}.first {
                         Text(pdd.title)
                         LazyVGrid(columns: columns, spacing: 10){
                             
@@ -28,25 +25,25 @@ struct CatalogViewCards: View {
                         }.padding()
                     }
                 }.padding(.top)
-                Button {
-                    cardsBool = true
-                } label: {
-                    Text("Пройти экзамен")
+                if let pdd = dbViewModel.pddCategory.filter {$0.id == "42" || $0.id == "44" || $0.id == "50"}.first {
+                    
+                    NavigationLink {
+                        TestCardView(pdd: pdd)
+                    } label: {
+                        Text("Пройти экзамен")
+                    }
+                    .foregroundColor(.white)
+                    .frame(width: 200, height: 50)
+                    .background(Color.blueApp)
+                    .cornerRadius(5)
+                    .padding()
                 }
-                .foregroundColor(.white)
-                .frame(width: 200, height: 50)
-                .background(Color.blueApp)
-                .cornerRadius(5)
-                .padding()
                
             }
             .padding(.vertical, 90)
                 .onAppear {
                     titleBar = "Учебные карточки"
                 }
-        } else {
-            Text("Нет интернета")
-        }
             
     }
 }

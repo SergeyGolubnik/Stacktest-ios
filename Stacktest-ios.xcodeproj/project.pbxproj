@@ -40,6 +40,10 @@
 		878FCEEC2860FFEB002C08D0 /* CoreDataBdPdd.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 878FCEEA2860FFEB002C08D0 /* CoreDataBdPdd.xcdatamodeld */; };
 		87B4605528737C9E009B2016 /* TicketsPDDCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B4605428737C9E009B2016 /* TicketsPDDCategory.swift */; };
 		87B4605828737CCF009B2016 /* TicketsPDDCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B4605728737CCF009B2016 /* TicketsPDDCategoryCell.swift */; };
+		87B4605B2874C985009B2016 /* TestCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B4605A2874C985009B2016 /* TestCardView.swift */; };
+		87B4605D28776705009B2016 /* EcsamViev.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B4605C28776705009B2016 /* EcsamViev.swift */; };
+		87B4605F2877671F009B2016 /* EcsamViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B4605E2877671F009B2016 /* EcsamViewModel.swift */; };
+		87B460632877717A009B2016 /* ModelQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B460622877717A009B2016 /* ModelQuestion.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +76,10 @@
 		878FCEEB2860FFEB002C08D0 /* CoreDataBdPdd.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataBdPdd.xcdatamodel; sourceTree = "<group>"; };
 		87B4605428737C9E009B2016 /* TicketsPDDCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsPDDCategory.swift; sourceTree = "<group>"; };
 		87B4605728737CCF009B2016 /* TicketsPDDCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsPDDCategoryCell.swift; sourceTree = "<group>"; };
+		87B4605A2874C985009B2016 /* TestCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCardView.swift; sourceTree = "<group>"; };
+		87B4605C28776705009B2016 /* EcsamViev.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcsamViev.swift; sourceTree = "<group>"; };
+		87B4605E2877671F009B2016 /* EcsamViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcsamViewModel.swift; sourceTree = "<group>"; };
+		87B460622877717A009B2016 /* ModelQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelQuestion.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +207,7 @@
 				878FCEBC285A676A002C08D0 /* ModelCategory.swift */,
 				878FCEC2285BB305002C08D0 /* ModelTest.swift */,
 				878FCEC4285BC515002C08D0 /* ModelStacktest.swift */,
+				87B460622877717A009B2016 /* ModelQuestion.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -223,6 +232,7 @@
 		87B4605328737C11009B2016 /* TestsGroup */ = {
 			isa = PBXGroup;
 			children = (
+				87B460592874C912009B2016 /* Ecsamenation */,
 				87B4605628737CB5009B2016 /* TicketsPDDCategory */,
 			);
 			path = TestsGroup;
@@ -235,6 +245,16 @@
 				87B4605728737CCF009B2016 /* TicketsPDDCategoryCell.swift */,
 			);
 			path = TicketsPDDCategory;
+			sourceTree = "<group>";
+		};
+		87B460592874C912009B2016 /* Ecsamenation */ = {
+			isa = PBXGroup;
+			children = (
+				87B4605A2874C985009B2016 /* TestCardView.swift */,
+				87B4605C28776705009B2016 /* EcsamViev.swift */,
+				87B4605E2877671F009B2016 /* EcsamViewModel.swift */,
+			);
+			path = Ecsamenation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -321,6 +341,9 @@
 			files = (
 				871B632A286CEA6A00D4860B /* CatalogViewCards.swift in Sources */,
 				87B4605828737CCF009B2016 /* TicketsPDDCategoryCell.swift in Sources */,
+				87B4605D28776705009B2016 /* EcsamViev.swift in Sources */,
+				87B4605B2874C985009B2016 /* TestCardView.swift in Sources */,
+				87B4605F2877671F009B2016 /* EcsamViewModel.swift in Sources */,
 				871B6334286E426400D4860B /* MenuSetings.swift in Sources */,
 				878FCEC1285A6BDB002C08D0 /* FirebaseData.swift in Sources */,
 				871B632F286CEF9700D4860B /* LocationViewPopower.swift in Sources */,
@@ -331,6 +354,7 @@
 				878FCE7B285919DF002C08D0 /* ContentView.swift in Sources */,
 				878FCEEC2860FFEB002C08D0 /* CoreDataBdPdd.xcdatamodeld in Sources */,
 				871B6331286E2D4C00D4860B /* StatistikView.swift in Sources */,
+				87B460632877717A009B2016 /* ModelQuestion.swift in Sources */,
 				8769E577286654A0003C7039 /* CatalogCell.swift in Sources */,
 				871B6328286CE1D100D4860B /* CatalogViewTicket.swift in Sources */,
 				8769E57C28666602003C7039 /* StaticArray.swift in Sources */,
