@@ -44,6 +44,7 @@
 		87B4605D28776705009B2016 /* EcsamViev.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B4605C28776705009B2016 /* EcsamViev.swift */; };
 		87B4605F2877671F009B2016 /* EcsamViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B4605E2877671F009B2016 /* EcsamViewModel.swift */; };
 		87B460632877717A009B2016 /* ModelQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B460622877717A009B2016 /* ModelQuestion.swift */; };
+		87B460672878182C009B2016 /* ExsameCartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B460662878182C009B2016 /* ExsameCartView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,7 @@
 		87B4605C28776705009B2016 /* EcsamViev.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcsamViev.swift; sourceTree = "<group>"; };
 		87B4605E2877671F009B2016 /* EcsamViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcsamViewModel.swift; sourceTree = "<group>"; };
 		87B460622877717A009B2016 /* ModelQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelQuestion.swift; sourceTree = "<group>"; };
+		87B460662878182C009B2016 /* ExsameCartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExsameCartView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,6 +255,7 @@
 				87B4605A2874C985009B2016 /* TestCardView.swift */,
 				87B4605C28776705009B2016 /* EcsamViev.swift */,
 				87B4605E2877671F009B2016 /* EcsamViewModel.swift */,
+				87B460662878182C009B2016 /* ExsameCartView.swift */,
 			);
 			path = Ecsamenation;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 				87B4605F2877671F009B2016 /* EcsamViewModel.swift in Sources */,
 				871B6334286E426400D4860B /* MenuSetings.swift in Sources */,
 				878FCEC1285A6BDB002C08D0 /* FirebaseData.swift in Sources */,
+				87B460672878182C009B2016 /* ExsameCartView.swift in Sources */,
 				871B632F286CEF9700D4860B /* LocationViewPopower.swift in Sources */,
 				878FCE8728591B05002C08D0 /* StartView.swift in Sources */,
 				873F2B352864FECA004B4A1A /* CatalogVievSigns.swift in Sources */,

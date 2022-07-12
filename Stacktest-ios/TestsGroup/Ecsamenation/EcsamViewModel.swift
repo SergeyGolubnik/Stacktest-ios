@@ -27,15 +27,22 @@ class EcsamViewModel: ObservableObject {
                 count += 1
             }
         }
-        if self.tests.count >= 22 {
+//        if self.tests.count >= 20 {
             let exam = self.tests.shuffled()
-            for i in exam[1...20] {
+            for i in exam[0...19] {
                 testExsame.append(i)
             }
-            print(testExsame.count)
-        }
+            print(testExsame)
+//        }
     }
-    
+    func getIndex(testEx: ModelQuestion)->Int{
+        
+        let index = testExsame.firstIndex(where: { test in
+            return testEx.id == test.id
+        }) ?? 0
+        
+        return index
+    }
 }
 
 
