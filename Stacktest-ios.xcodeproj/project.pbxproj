@@ -13,6 +13,7 @@
 		871B632F286CEF9700D4860B /* LocationViewPopower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B632E286CEF9700D4860B /* LocationViewPopower.swift */; };
 		871B6331286E2D4C00D4860B /* StatistikView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B6330286E2D4C00D4860B /* StatistikView.swift */; };
 		871B6334286E426400D4860B /* MenuSetings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B6333286E426300D4860B /* MenuSetings.swift */; };
+		871D3480287E00E0002FCEF8 /* TinderQustionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871D347F287E00E0002FCEF8 /* TinderQustionTest.swift */; };
 		873F2B3228625EFA004B4A1A /* AuthResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873F2B3128625EFA004B4A1A /* AuthResult.swift */; };
 		873F2B352864FECA004B4A1A /* CatalogVievSigns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873F2B342864FECA004B4A1A /* CatalogVievSigns.swift */; };
 		8769E57228664F71003C7039 /* NavigationBarCostom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8769E57128664F71003C7039 /* NavigationBarCostom.swift */; };
@@ -54,6 +55,7 @@
 		871B632E286CEF9700D4860B /* LocationViewPopower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewPopower.swift; sourceTree = "<group>"; };
 		871B6330286E2D4C00D4860B /* StatistikView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatistikView.swift; sourceTree = "<group>"; };
 		871B6333286E426300D4860B /* MenuSetings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSetings.swift; sourceTree = "<group>"; };
+		871D347F287E00E0002FCEF8 /* TinderQustionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinderQustionTest.swift; sourceTree = "<group>"; };
 		873F2B3128625EFA004B4A1A /* AuthResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResult.swift; sourceTree = "<group>"; };
 		873F2B342864FECA004B4A1A /* CatalogVievSigns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogVievSigns.swift; sourceTree = "<group>"; };
 		8769E57128664F71003C7039 /* NavigationBarCostom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarCostom.swift; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 				87B4605C28776705009B2016 /* EcsamViev.swift */,
 				87B4605E2877671F009B2016 /* EcsamViewModel.swift */,
 				87B460662878182C009B2016 /* ExsameCartView.swift */,
+				871D347F287E00E0002FCEF8 /* TinderQustionTest.swift */,
 			);
 			path = Ecsamenation;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 				87B4605828737CCF009B2016 /* TicketsPDDCategoryCell.swift in Sources */,
 				87B4605D28776705009B2016 /* EcsamViev.swift in Sources */,
 				87B4605B2874C985009B2016 /* TestCardView.swift in Sources */,
+				871D3480287E00E0002FCEF8 /* TinderQustionTest.swift in Sources */,
 				87B4605F2877671F009B2016 /* EcsamViewModel.swift in Sources */,
 				871B6334286E426400D4860B /* MenuSetings.swift in Sources */,
 				878FCEC1285A6BDB002C08D0 /* FirebaseData.swift in Sources */,

@@ -9,7 +9,7 @@ import Foundation
 
 
 struct ModelQuestion: Identifiable {
-    var id = UUID()
+    var id = UUID().uuidString
     var title: String
     var question: String
     var answer1: String

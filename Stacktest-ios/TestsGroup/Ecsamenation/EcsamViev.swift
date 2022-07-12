@@ -10,38 +10,43 @@ import SwiftUI
 struct EcsamViev: View {
     @ObservedObject var modelEcsam: EcsamViewModel
     var body: some View {
-        VStack{
-
-            Text(modelEcsam.category?.test[0].question[0] ?? "")
+        
+        ZStack {
+            ForEach(modelEcsam.testExsame.reversed()) { test in
+                TinderQustionTest(qustion: test).environmentObject(modelEcsam)
+            }
         }
-//        VStack {
-//            ForEach(modelEcsam.testExsame, id: \.id) { test in
-//                GeometryReader{proxy in
-//                    let size = proxy.size
-//
-//                    let index = CGFloat(modelEcsam.getIndex(testEx: test))
-//                    // Showing Next two cards at top like a Stack...
-//                    let topOffset = (index <= 2 ? index : 2) * 15
-//
-//                    ZStack{
-//
-//                        ExsameCartView(qustion: test)
-////                            .aspectRatio(contentMode: .fill)
-//                        // Reducing width too...
-//                            .frame(width: size.width - topOffset, height: size.height)
-//                            .offset(y: -topOffset)
-//                    }
-//                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-//                }
-//
-//            }
-//        }
+        .padding([.top,.bottom], 100)
+            .padding()
+            .padding(.vertical)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+        VStack{
+            Button {
+                doSwipe(rightSwipe: true)
+            } label: {
+                Text("Enter->")
+            }
+
+        }
+    }
+    func doSwipe(rightSwipe: Bool = false){
+        
+        guard let first = modelEcsam.testExsame.first else{
+            return
+        }
+        
+        // Using Notification to post and receiving in Stack Cards...
+        NotificationCenter.default.post(name: NSNotification.Name("ACTIONFROMBUTTON"), object: nil, userInfo: [
+        
+            "id": first.id,
+            "rightSwipe": rightSwipe
+        ])
     }
 }
 
 struct EcsamViev_Previews: PreviewProvider {
     static var previews: some View {
-        let cat = EcsamViewModel(category: arrayStaticGroup[1].modelCategory[0])
+        let cat = EcsamViewModel(category: StaticArray.shared.arrayStaticGroup11[1].modelCategory[0])
         EcsamViev(modelEcsam: cat)
     }
 }

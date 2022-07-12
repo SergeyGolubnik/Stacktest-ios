@@ -14,7 +14,7 @@ class EcsamViewModel: ObservableObject {
     var category: ModelCategory?
     
     init(category: ModelCategory?) {
-        self.category = category
+        self.category = StaticArray.shared.arrayStaticGroup11[1].modelCategory[0]
     }
     
     func questionFor() {
@@ -42,6 +42,9 @@ class EcsamViewModel: ObservableObject {
         }) ?? 0
         
         return index
+    }
+    func removeArr() {
+        testExsame.remove(at: 0)
     }
 }
 

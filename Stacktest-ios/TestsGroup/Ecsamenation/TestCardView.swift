@@ -46,6 +46,6 @@ struct TestCardView: View {
 
 struct TestCardView_Previews: PreviewProvider {
     static var previews: some View {
-        TestCardView(pdd: arrayStaticGroup[1])
+        TestCardView(pdd: StaticArray.shared.arrayStaticGroup11[1])
     }
 }
