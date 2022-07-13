@@ -10,7 +10,7 @@ import SDWebImageSwiftUI
 struct ExsameCartView: View {
     @State var qustion: ModelQuestion
     @State var ansver = ""
-    @State var buttonBloc = false
+    @Binding var buttonBloc: Bool
     let ride = UIScreen.main.bounds
     var body: some View {
         ZStack(alignment: .center){
@@ -153,6 +153,6 @@ struct ExsameCartView: View {
 
 struct ExsameCartView_Previews: PreviewProvider {
     static var previews: some View {
-        ExsameCartView(qustion: StaticArray.shared.questionStatic)
+        ExsameCartView(qustion: StaticArray.shared.questionStatic, buttonBloc: .constant(false))
     }
 }

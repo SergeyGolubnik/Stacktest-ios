@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-class EcsamViewModel: ObservableObject {
+class ExsamViewModel: ObservableObject {
     
     @Published var tests = [ModelQuestion]()
     @Published var testExsame = [ModelQuestion]()
     var category: ModelCategory?
     
     init(category: ModelCategory?) {
-        self.category = StaticArray.shared.arrayStaticGroup11[1].modelCategory[0]
+        self.category = category
     }
     
     func questionFor() {
@@ -32,7 +32,6 @@ class EcsamViewModel: ObservableObject {
             for i in exam[0...19] {
                 testExsame.append(i)
             }
-            print(testExsame)
 //        }
     }
     func getIndex(testEx: ModelQuestion)->Int{

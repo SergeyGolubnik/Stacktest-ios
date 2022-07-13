@@ -7,13 +7,14 @@
 
 import SwiftUI
 
-struct EcsamViev: View {
-    @ObservedObject var modelEcsam: EcsamViewModel
+struct ExsamViev: View {
+    @ObservedObject var modelEcsam: ExsamViewModel
+    @State var bindingCard = false
     var body: some View {
         
         ZStack {
             ForEach(modelEcsam.testExsame.reversed()) { test in
-                TinderQustionTest(qustion: test).environmentObject(modelEcsam)
+                TinderQustionTest(bindingCart: $bindingCard, qustion: test).environmentObject(modelEcsam)
             }
         }
         .padding([.top,.bottom], 100)
@@ -21,10 +22,15 @@ struct EcsamViev: View {
             .padding(.vertical)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         VStack{
-            Button {
-                doSwipe(rightSwipe: true)
-            } label: {
-                Text("Enter->")
+            if bindingCard {
+                Button {
+                    doSwipe(rightSwipe: true)
+                    bindingCard = false
+                } label: {
+                    Text("Enter->")
+                }
+            } else {
+                Text("Enter")
             }
 
         }
@@ -46,7 +52,7 @@ struct EcsamViev: View {
 
 struct EcsamViev_Previews: PreviewProvider {
     static var previews: some View {
-        let cat = EcsamViewModel(category: StaticArray.shared.arrayStaticGroup11[1].modelCategory[0])
-        EcsamViev(modelEcsam: cat)
+        let cat = ExsamViewModel(category: StaticArray.shared.arrayStaticGroup11[1].modelCategory[0])
+        ExsamViev(modelEcsam: cat)
     }
 }

@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct TinderQustionTest: View {
-    @EnvironmentObject var modelTest: EcsamViewModel
+    @EnvironmentObject var modelTest: ExsamViewModel
     @State var offset: CGFloat = 0
     @State var endSwipe: Bool = false
+    @Binding var bindingCart: Bool
     var qustion: ModelQuestion
     var body: some View {
         GeometryReader{proxy in
@@ -21,15 +22,12 @@ struct TinderQustionTest: View {
             let topOffset = (index <= 2 ? index : 2) * 15
             
             ZStack{
-                
-                ExsameCartView(qustion: qustion)
+                ExsameCartView(qustion: qustion, buttonBloc: $bindingCart)
                     .frame(width: size.width - topOffset, height: size.height)
                     .offset(y: -topOffset)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-            .onAppear {
-                print(index)
-            }
+          
         }
         .offset(x: offset)
         .rotationEffect(.init(degrees: getRotation(angle: 8)))
@@ -52,12 +50,6 @@ struct TinderQustionTest: View {
                     offset = (rightSwipe ? width : -width) * 2
                     endSwipeActions()
 
-                    if rightSwipe{
-                        self.rightSwipe()
-                    }
-                    else{
-                        leftSwipe()
-                    }
                 }
             }
         }
@@ -86,17 +78,7 @@ struct TinderQustionTest: View {
             }
         }
     }
-    
-    func leftSwipe(){
-        // DO ACTIONS HERE...
-        print("Left Swiped")
-    }
-    
-    func rightSwipe(){
-        // DO ACTIONS HERE...
-        print("Right Swiped")
-    }
-    
+
 }
 
 
