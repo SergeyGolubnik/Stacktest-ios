@@ -41,6 +41,8 @@ struct ExsamViev: View {
             Divider()
             HStack {
                 Button {
+                    modelEcsam.testExsame.removeAll()
+                    modelEcsam.testExsameDable.removeAll()
                     presentation.wrappedValue.dismiss()
                 } label: {
                     Image("exit")
