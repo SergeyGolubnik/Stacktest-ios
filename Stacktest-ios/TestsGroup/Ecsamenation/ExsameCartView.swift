@@ -7,7 +7,10 @@
 
 import SwiftUI
 import SDWebImageSwiftUI
+
+
 struct ExsameCartView: View {
+    @EnvironmentObject var modelTestView: ExsamViewModel
     @State var qustion: ModelQuestion
     @State var ansver = ""
     @Binding var buttonBloc: Bool
@@ -38,105 +41,49 @@ struct ExsameCartView: View {
                     if !buttonBloc {
                         Button {
                             ansver = "1"
+                            answerOut()
                             buttonBloc = true
                         } label: {
-                            Text("1. \(qustion.answer1)")
-                                .font(.system(size: 16))
-                                .foregroundColor(.black)
-                                .frame(width: ride.width - 120, height: ride.height / 22, alignment: .leading)
-                                .padding(.leading)
-                                .background(Color.white).cornerRadius(5)
-                                .minimumScaleFactor(0.2)
-                                .multilineTextAlignment(.leading)
+                            testView(text: "1. \(qustion.answer1)", inter: nil)
                         }
                     } else {
-                        Text("1. \(qustion.answer1)")
-                            .font(.system(size: 16))
-                            .foregroundColor(.black)
-                            .frame(width: ride.width - 120, height: ride.height / 22, alignment: .leading)
-                            .padding(.leading)
-                            .background(qustion.correct == "1" ? Color.green : (ansver == "1" ? Color.red : Color.white))
-                            .cornerRadius(5)
-                            .minimumScaleFactor(0.2)
-                            .multilineTextAlignment(.leading)
+                        testView(text: "1. \(qustion.answer1)", inter: "1")
                     }
                     if !buttonBloc {
                         Button {
                             ansver = "2"
+                            answerOut()
                             buttonBloc = true
                         } label: {
-                            Text("2. \(qustion.answer2)")
-                                .font(.system(size: 16))
-                                .foregroundColor(.black)
-                                .frame(width: ride.width - 120, height: ride.height / 22, alignment: .leading)
-                                .padding(.leading)
-                                .background(Color.white).cornerRadius(5)
-                                .minimumScaleFactor(0.2)
-                                .multilineTextAlignment(.leading)
+                            testView(text: "2. \(qustion.answer2)", inter: nil)
                         }
                     } else {
-                        Text("2. \(qustion.answer2)")
-                            .font(.system(size: 16))
-                            .foregroundColor(.black)
-                            .frame(width: ride.width - 120, height: ride.height / 22, alignment: .leading)
-                            .padding(.leading)
-                            .background(qustion.correct == "2" ? Color.green : (ansver == "2" ? Color.red : Color.white))
-                            .cornerRadius(5)
-                            .minimumScaleFactor(0.2)
-                            .multilineTextAlignment(.leading)
+                        testView(text: "2. \(qustion.answer2)", inter: "2")
                     }
                     if qustion.answer3 != "" {
                         if !buttonBloc {
                             Button {
                                 ansver = "3"
+                                answerOut()
                                 buttonBloc = true
                             } label: {
-                                Text("3. \(qustion.answer3)")
-                                    .font(.system(size: 16))
-                                    .foregroundColor(.black)
-                                    .frame(width: ride.width - 120, height: ride.height / 22, alignment: .leading)
-                                    .padding(.leading)
-                                    .background(Color.white).cornerRadius(5)
-                                    .minimumScaleFactor(0.2)
-                                    .multilineTextAlignment(.leading)
+                                testView(text: "3. \(qustion.answer3)", inter: nil)
                             }
                         } else {
-                            Text("3. \(qustion.answer3)")
-                                .font(.system(size: 16))
-                                .foregroundColor(.black)
-                                .frame(width: ride.width - 120, height: ride.height / 22, alignment: .leading)
-                                .padding(.leading)
-                                .background(qustion.correct == "3" ? Color.green : (ansver == "3" ? Color.red : Color.white))
-                                .cornerRadius(5)
-                                .minimumScaleFactor(0.2)
-                                .multilineTextAlignment(.leading)
+                            testView(text: "3. \(qustion.answer3)", inter: "3")
                         }
                     }
                     if qustion.answer4 != "" {
                         if !buttonBloc {
                             Button {
                                 ansver = "4"
+                                answerOut()
                                 buttonBloc = true
                             } label: {
-                                Text("4. \(qustion.answer4)")
-                                    .font(.system(size: 16))
-                                    .foregroundColor(.black)
-                                    .frame(width: ride.width - 120, height: ride.height / 22, alignment: .leading)
-                                    .padding(.leading)
-                                    .background(Color.white).cornerRadius(5)
-                                    .minimumScaleFactor(0.2)
-                                    .multilineTextAlignment(.leading)
+                                testView(text: "4. \(qustion.answer4)", inter: nil)
                             }
                         } else {
-                            Text("4. \(qustion.answer4)")
-                                .font(.system(size: 16))
-                                .foregroundColor(.black)
-                                .frame(width: ride.width - 120, height: ride.height / 22, alignment: .leading)
-                                .padding(.leading)
-                                .background(qustion.correct == "4" ? Color.green : (ansver == "4" ? Color.red : Color.white))
-                                .cornerRadius(5)
-                                .minimumScaleFactor(0.2)
-                                .multilineTextAlignment(.leading)
+                            testView(text: "4. \(qustion.answer4)", inter: "4")
                         }
                     }
                 }
@@ -148,6 +95,30 @@ struct ExsameCartView: View {
         .cornerRadius(10)
         .overlay(RoundedRectangle(cornerRadius: 10)
             .stroke(Color.black, lineWidth: 0.1))
+    }
+    @ViewBuilder
+    func testView(text: String, inter: String?) -> some View {
+        Text(text)
+            .font(.system(size: 16))
+            .foregroundColor(.black)
+            .frame(maxWidth: ride.width / 1.2, minHeight: ride.height / 22, alignment: .leading)
+            .padding(.leading)
+            .background(inter == nil ? .white : qustion.correct == inter ? Color.green : (ansver == inter ? Color.red : Color.white))
+            .cornerRadius(5)
+            .minimumScaleFactor(0.2)
+            .multilineTextAlignment(.leading)
+    }
+    func answerOut() {
+        let index = modelTestView.testExsameDable.firstIndex(where: { test in
+            return qustion.id == test.id
+        }) ?? 0
+        if ansver == qustion.correct {
+            modelTestView.testExsameDable[index].otvet = true
+            print(modelTestView.testExsameDable[index])
+        } else {
+            modelTestView.testExsameDable[index].otvet = false
+            print(modelTestView.testExsameDable[index])
+        }
     }
 }
 

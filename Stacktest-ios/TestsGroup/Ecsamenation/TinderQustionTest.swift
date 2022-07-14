@@ -17,12 +17,12 @@ struct TinderQustionTest: View {
         GeometryReader{proxy in
             let size = proxy.size
             
-            let index = CGFloat(modelTest.getIndex(testEx: qustion))
+            let index = CGFloat(modelTest.getIndex(testEx: qustion, testArray: modelTest.testExsame))
             // Showing Next two cards at top like a Stack...
             let topOffset = (index <= 2 ? index : 2) * 15
             
             ZStack{
-                ExsameCartView(qustion: qustion, buttonBloc: $bindingCart)
+                ExsameCartView(qustion: qustion, buttonBloc: $bindingCart).environmentObject(modelTest)
                     .frame(width: size.width - topOffset, height: size.height)
                     .offset(y: -topOffset)
             }

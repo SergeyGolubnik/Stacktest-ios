@@ -37,7 +37,7 @@ struct TestCardView: View {
             .navigationBarTitle("Пройти экзамен", displayMode: .inline)
             .navigationBarColor(UIColor(Color.blueApp))
             .fullScreenCover(isPresented: $exsamBool) {
-                ExsamViev(modelEcsam: ecsamModel)
+                ExsamViev(modelEcsam: ecsamModel, name: "Экзамен")
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())

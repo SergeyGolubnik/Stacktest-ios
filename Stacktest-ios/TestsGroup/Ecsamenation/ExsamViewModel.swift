@@ -11,6 +11,7 @@ class ExsamViewModel: ObservableObject {
     
     @Published var tests = [ModelQuestion]()
     @Published var testExsame = [ModelQuestion]()
+    @Published var testExsameDable = [ModelQuestion]()
     var category: ModelCategory?
     
     init(category: ModelCategory?) {
@@ -27,24 +28,23 @@ class ExsamViewModel: ObservableObject {
                 count += 1
             }
         }
-//        if self.tests.count >= 20 {
+        if self.tests.count >= 20 {
             let exam = self.tests.shuffled()
             for i in exam[0...19] {
                 testExsame.append(i)
             }
-//        }
+        testExsameDable = testExsame
+        }
     }
-    func getIndex(testEx: ModelQuestion)->Int{
+    func getIndex(testEx: ModelQuestion, testArray: [ModelQuestion])->Int{
         
-        let index = testExsame.firstIndex(where: { test in
+        let index = testArray.firstIndex(where: { test in
             return testEx.id == test.id
         }) ?? 0
         
         return index
     }
-    func removeArr() {
-        testExsame.remove(at: 0)
-    }
+    
 }
 
 
