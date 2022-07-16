@@ -114,10 +114,8 @@ struct ExsameCartView: View {
         }) ?? 0
         if ansver == qustion.correct {
             modelTestView.testExsameDable[index].otvet = true
-            print(modelTestView.testExsameDable[index])
         } else {
             modelTestView.testExsameDable[index].otvet = false
-            print(modelTestView.testExsameDable[index])
         }
     }
 }

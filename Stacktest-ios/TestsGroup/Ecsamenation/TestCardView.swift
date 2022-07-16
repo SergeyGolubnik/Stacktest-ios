@@ -11,7 +11,7 @@ struct TestCardView: View {
     @State var pdd: ModelCategory
     @State var exsamBool = false
     let columns = [GridItem(.flexible(), spacing: 10), GridItem(.flexible(), spacing: 10)]
-    var ecsamModel = ExsamViewModel(category: nil)
+    var ecsamModel = ExsamViewModel(category: nil, optonView: nil)
     var body: some View {
         NavigationView {
             ScrollView {
@@ -21,6 +21,8 @@ struct TestCardView: View {
                         ForEach(pdd.modelCategory, id: \.id) { cat in
                             Button {
                                 ecsamModel.category = cat
+                                ecsamModel.optionView = 1
+                                ecsamModel.title = "Экзамен"
                                 ecsamModel.questionFor()
                                 exsamBool.toggle()
                                 
@@ -37,7 +39,7 @@ struct TestCardView: View {
             .navigationBarTitle("Пройти экзамен", displayMode: .inline)
             .navigationBarColor(UIColor(Color.blueApp))
             .fullScreenCover(isPresented: $exsamBool) {
-                ExsamViev(modelEcsam: ecsamModel, name: "Экзамен")
+                ExsamViev(modelEcsam: ecsamModel)
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())

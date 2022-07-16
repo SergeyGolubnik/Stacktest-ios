@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct ModelQuestion: Identifiable {
+struct ModelQuestion: Identifiable, Hashable {
     var id = UUID().uuidString
     var title: String
     var question: String

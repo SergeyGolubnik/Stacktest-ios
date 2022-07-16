@@ -21,7 +21,7 @@ struct CatalogViewTicket: View {
                             
                             ForEach(pdd.modelCategory, id: \.id) { cat in
                                 NavigationLink {
-                                    TicketsPDDCategory(modelTest: cat.test, nameGroup: cat.title)
+                                    TicketsPDDCategory(modelTest: cat)
                                 } label: {
                                     CatalogCell(title: cat.title, image: "https://stacktest.ru/\(cat.image)")
                                 }

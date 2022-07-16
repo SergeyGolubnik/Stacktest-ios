@@ -10,15 +10,20 @@ import SwiftUI
 class ExsamViewModel: ObservableObject {
     
     @Published var tests = [ModelQuestion]()
+    @Published var title = ""
+    
     @Published var testExsame = [ModelQuestion]()
     @Published var testExsameDable = [ModelQuestion]()
     var category: ModelCategory?
-    
-    init(category: ModelCategory?) {
+    var optionView: Int?
+    init(category: ModelCategory?, optonView: Int?) {
         self.category = category
+        self.optionView = optonView
     }
     
     func questionFor() {
+        testExsame.removeAll()
+        testExsameDable.removeAll()
         guard let testcat = category?.test else {return}
         for test in testcat {
             for _ in test.question {
@@ -44,7 +49,9 @@ class ExsamViewModel: ObservableObject {
         
         return index
     }
-    
+    func removeTest() {
+        
+    }
 }
 
 

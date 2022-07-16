@@ -9,8 +9,9 @@ import SwiftUI
 
 struct TicketsPDDCategory: View {
     @Environment(\.presentationMode) var presentation
-    @State var modelTest = [ModelTest]()
-    @State var nameGroup = ""
+    @State var modelTest: ModelCategory
+    @State var testBool = false
+    var ecsamModel = ExsamViewModel(category: nil, optonView: nil)
     let columns = [GridItem(.flexible(), spacing: 10),
                    GridItem(.flexible(), spacing: 10),
                    GridItem(.flexible(), spacing: 10),
@@ -19,9 +20,13 @@ struct TicketsPDDCategory: View {
         NavigationView {
             ScrollView {
                 LazyVGrid(columns: columns, spacing: 10){
-                    ForEach(modelTest, id: \ .id) { test in
+                    ForEach(modelTest.test, id: \ .id) { test in
                         Button {
-                            
+                            ecsamModel.category = modelTest
+                            ecsamModel.optionView = 2
+                            ecsamModel.title = "Билет \(test.title)"
+                            ecsamModel.questionFor()
+                            testBool.toggle()
                         } label: {
                             TicketsPDDCategoryCell(idTest: test.title)
                                 .foregroundColor(.black)
@@ -29,9 +34,11 @@ struct TicketsPDDCategory: View {
                     }
                 }.padding(30)
             }
-            .navigationBarTitle(nameGroup, displayMode: .inline)
+            .navigationBarTitle(modelTest.title, displayMode: .inline)
             .navigationBarColor(UIColor(Color.blueApp))
-            
+            .fullScreenCover(isPresented: $testBool) {
+                ExsamViev(modelEcsam: ecsamModel)
+            }
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }
@@ -39,6 +46,6 @@ struct TicketsPDDCategory: View {
 
 struct TicketsPDDCategory_Previews: PreviewProvider {
     static var previews: some View {
-        TicketsPDDCategory(modelTest: [ModelTest(), ModelTest()], nameGroup: "Test")
+        TicketsPDDCategory(modelTest: StaticArray.shared.arrayStaticGroup11[1])
     }
 }
